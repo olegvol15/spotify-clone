@@ -1,31 +1,37 @@
 import type { Podcast } from '../types';
+import bulbCover from '../assets/media/bulb.png';
+import monsterCover from '../assets/media/monster.png';
+import bunnyCover from '../assets/media/bunny.png';
 
 export const podcasts: Podcast[] = [
   {
     id: 'pod1',
-    title: 'Майбутнє вже тут: як технології змінюють наш світ',
-    podcastName: 'Хроніки майбутнього',
-    coverUrl: 'https://picsum.photos/seed/podcast1/400/225',
-    description: 'Подкаст про технологічний прогрес і його вплив на суспільство.',
-    publishedAt: '15 січ 2024',
-    duration: 3240,
+    title: 'Частина 1. Хроніки майбутнього',
+    podcastName: 'Епізод',
+    coverUrl: bulbCover,
+    description:
+      '«Яким буде світ за 50 років? Чи станемо ми кіборгами? Чи можлива колонізація Марса? Ми розбираємо найновіші відкриття, дослідження та гіпотези, які можуть зробити майбутнє ще більш непередбачуваним.»',
+    publishedAt: 'Лип. 2024',
+    duration: 19320,
   },
   {
     id: 'pod2',
-    title: 'Розкриваємо таємниці кримінального світу',
-    podcastName: 'Тіньові справи',
-    coverUrl: 'https://picsum.photos/seed/podcast2/400/225',
-    description: 'Реальні кримінальні розслідування та детективні історії.',
-    publishedAt: '22 січ 2024',
-    duration: 2760,
+    title: 'Частина 10. Тіньові справи',
+    podcastName: 'Епізод',
+    coverUrl: monsterCover,
+    description:
+      '«Реальні кримінальні історії, що лякають своєю жорстокістю та загадковістю. Ми аналізуємо резонансні злочини, розбираємо деталі розслідувань і намагаємось зрозуміти, що рухає злочинцями. У кожному випуску — нова справа, нові факти.»',
+    publishedAt: 'Лип. 2024',
+    duration: 19320,
   },
   {
     id: 'pod3',
-    title: 'Чи живемо ми в симуляції? Доводи за і проти',
-    podcastName: 'Теорії змови',
-    coverUrl: 'https://picsum.photos/seed/podcast3/400/225',
-    description: 'Аналіз найпопулярніших теорій змови та наукові спростування.',
-    publishedAt: '1 лют 2024',
-    duration: 2100,
+    title: 'Частина 1. Теорії змови',
+    podcastName: 'Епізод',
+    coverUrl: bunnyCover,
+    description:
+      '«Від таємного уряду до фейкової висадки на Місяць. Ми аналізуємо найпопулярніші теорії змови, шукаємо докази та розбираємося, що з цього — реальність, а що — вигадка.»',
+    publishedAt: 'Лип. 2024',
+    duration: 19320,
   },
 ];

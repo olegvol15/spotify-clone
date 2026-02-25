@@ -25,7 +25,7 @@ export default function MoodSection() {
         </button>
       </div>
 
-      <div className="flex gap-8 overflow-x-auto pb-2 scrollbar-none">
+      <div className="flex gap-10 justify-center overflow-x-auto pb-2 scrollbar-none">
         {moods.map(({ id, icon: Icon, label }) => {
           const isActive = active === id;
           return (
