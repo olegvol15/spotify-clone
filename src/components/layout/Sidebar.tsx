@@ -11,7 +11,7 @@ export default function Sidebar() {
   const playlistItems = artists.slice(0, 5);
 
   return (
-    <aside className="fixed top-16 left-0 bottom-0 w-64 z-40 bg-[#060d19] border-r border-[#1a3050] overflow-y-auto flex flex-col">
+    <aside className="sticky top-16 h-[calc(100vh-4rem)] w-64 bg-[#060d19] border-r border-[#1a3050] overflow-y-auto flex flex-col flex-shrink-0">
 
       {/* Меню */}
       <div className="px-5 pt-6 pb-5">

@@ -31,17 +31,17 @@ function HomePage() {
   };
 
   return (
-    <div className="px-4 pt-5 pb-4 lg:px-8 lg:pt-8">
+    <div className="px-6 pt-5 pb-4">
       {/* Filter tabs */}
-      <div className="flex gap-2 mb-6">
+      <div className="flex gap-2 mb-5">
         {FILTER_TABS.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+            className={`px-5 py-1.5 rounded-full text-sm font-medium transition-colors border ${
               activeTab === tab
-                ? 'bg-[#1CA2EA] text-white'
-                : 'bg-[#0a1929] border border-[#1a3050] text-white/60 hover:text-white hover:border-[#1CA2EA]/50'
+                ? 'bg-[#0a1929] border-white/40 text-white'
+                : 'border-[#1a3050] text-white/60 hover:text-white hover:border-white/30'
             }`}
           >
             {tab}
@@ -55,7 +55,7 @@ function HomePage() {
 
       <HorizontalSection
         title="Топ ВАША музика сьогодні!"
-        accentWord="ВАША"
+        accentWord="музика"
         items={tracks.slice(0, 5) as Track[]}
         onItemClick={handleAlbumClick}
       />
@@ -69,7 +69,7 @@ function HomePage() {
 
       <ArtistSection
         title="Твої улюблені виконавці"
-        accentWord="улюблені"
+        accentWord="виконавці"
         artists={artists}
         onArtistClick={handleArtistClick}
       />

@@ -34,14 +34,14 @@ export default function HorizontalSection({
   const after = accentIdx > -1 ? title.slice(accentIdx + accentWord.length) : '';
 
   return (
-    <section className="mb-8">
+    <section className="mb-10">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-white font-bold text-lg">
+        <h2 className="text-white font-bold text-xl">
           {before}
           {accentWord && <span className="text-[#1CA2EA]">{accentWord}</span>}
           {after}
         </h2>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-2">
           <button
             onClick={() => scroll('left')}
             className="w-7 h-7 rounded-full border border-[#1a3050] flex items-center justify-center text-white/50 hover:text-white hover:border-[#1CA2EA] transition-colors"
@@ -65,7 +65,7 @@ export default function HorizontalSection({
                 key={item.id}
                 image={item.coverUrl}
                 title={item.title}
-                subtitle={item.artistName}
+                subtitle={`By ${item.artistName}`}
                 onClick={() => onItemClick?.(item)}
               />
             );

@@ -13,42 +13,49 @@ function RootLayout() {
   const pathname = location.pathname;
   const hideNav = HIDDEN_NAV_ROUTES.some((r) => pathname.startsWith(r));
 
+  if (hideNav) {
+    return (
+      <div className="min-h-screen bg-[#060d19] text-white">
+        <Outlet />
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-[#060d19] text-white">
-      {/* Desktop layout: TopBar + Sidebar + RightPanel (lg+) */}
-      {!hideNav && (
+    <div className="bg-[#060d19] text-white">
+      {/* TopBar — fixed at top, desktop only */}
+      <div className="hidden lg:block">
+        <TopBar />
+      </div>
+
+      {/* 3-column area: Sidebar | main | RightPanel — pt-16 clears fixed TopBar */}
+      <div className="lg:flex lg:pt-16">
+        {/* Sidebar — sticky, desktop only */}
         <div className="hidden lg:block">
-          <TopBar />
           <Sidebar />
+        </div>
+
+        {/* Main content — shared mobile + desktop */}
+        <main className="flex-1 min-w-0 pb-32 lg:pb-0">
+          <Outlet />
+        </main>
+
+        {/* RightPanel — sticky, desktop only */}
+        <div className="hidden lg:block">
           <RightPanel />
         </div>
-      )}
+      </div>
 
-      {/* Main content */}
-      <main
-        className={[
-          !hideNav ? 'lg:pl-64 lg:pr-60 lg:pt-16' : '',
-          !hideNav ? 'pb-32 lg:pb-0' : '',
-        ]
-          .filter(Boolean)
-          .join(' ')}
-      >
-        <Outlet />
-        {/* Footer — desktop only */}
-        {!hideNav && (
-          <div className="hidden lg:block">
-            <Footer />
-          </div>
-        )}
-      </main>
+      {/* Footer — outside 3-column area, spans true full width (desktop only) */}
+      <div className="hidden lg:block">
+        <Footer />
+      </div>
 
-      {/* Mobile nav: BottomNav + MiniPlayer (< lg) */}
-      {!hideNav && (
-        <div className="lg:hidden">
-          <MiniPlayer />
-          <BottomNav />
-        </div>
-      )}
+      {/* Mobile nav — fixed at bottom */}
+      <div className="lg:hidden">
+        <MiniPlayer />
+        <BottomNav />
+      </div>
     </div>
   );
 }

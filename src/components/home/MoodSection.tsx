@@ -13,42 +13,43 @@ export default function MoodSection() {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <section className="mb-8">
-      <div className="flex items-center justify-between mb-5">
-        <h2 className="text-white font-bold text-lg">
+    <section className="mb-10">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-white font-bold text-xl">
           Саундреки на основі твого{' '}
           <span className="text-[#1CA2EA]">настрою</span>
         </h2>
-        <button className="flex items-center gap-1.5 text-white/50 text-sm border border-[#1a3050] rounded-full px-3 py-1 hover:border-[#1CA2EA]/60 hover:text-white/80 transition-colors">
+        <button className="flex items-center gap-1.5 text-white/60 text-sm border border-[#1a3050] rounded-full px-4 py-1.5 hover:border-[#1CA2EA]/60 hover:text-white/80 transition-colors">
           Настрій
           <ChevronDown size={13} />
         </button>
       </div>
 
-      <div className="flex gap-5 overflow-x-auto pb-1 scrollbar-none">
+      <div className="flex gap-8 overflow-x-auto pb-2 scrollbar-none">
         {moods.map(({ id, icon: Icon, label }) => {
           const isActive = active === id;
           return (
             <button
               key={id}
               onClick={() => setActive(isActive ? null : id)}
-              className="flex flex-col items-center gap-2 flex-shrink-0"
+              className="flex flex-col items-center gap-3 flex-shrink-0"
             >
+              {/* Circle — always styled, active = stronger glow */}
               <div
-                className={`w-20 h-20 rounded-full border-2 flex items-center justify-center transition-all ${
+                className={`w-24 h-24 rounded-full border-2 border-[#1CA2EA] bg-[#071220] flex items-center justify-center transition-all ${
                   isActive
-                    ? 'border-[#1CA2EA] bg-[#1CA2EA]/10 shadow-[0_0_14px_rgba(28,162,234,0.35)]'
-                    : 'border-[#1a3050] hover:border-[#1CA2EA]/50 hover:bg-white/5'
+                    ? 'shadow-[0_0_20px_rgba(28,162,234,0.6),inset_0_0_20px_rgba(28,162,234,0.15)]'
+                    : 'shadow-[0_0_10px_rgba(28,162,234,0.25),inset_0_0_10px_rgba(28,162,234,0.08)]'
                 }`}
               >
                 <Icon
-                  size={28}
-                  className={`transition-colors ${isActive ? 'text-[#1CA2EA]' : 'text-white/50'}`}
+                  size={34}
+                  className={`transition-colors ${isActive ? 'text-[#1CA2EA]' : 'text-[#5bb8e8]'}`}
                 />
               </div>
               <span
-                className={`text-xs font-medium transition-colors ${
-                  isActive ? 'text-[#1CA2EA]' : 'text-white/50'
+                className={`text-sm font-medium transition-colors ${
+                  isActive ? 'text-white' : 'text-white/70'
                 }`}
               >
                 {label}

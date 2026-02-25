@@ -2,32 +2,37 @@ import { podcasts } from '../../data/podcasts';
 
 export default function PodcastSection() {
   return (
-    <section className="mb-8">
-      <h2 className="text-white font-bold text-lg mb-4">
-        Популярні <span className="text-[#1CA2EA]">подкасти</span>
+    <section className="mb-10">
+      <h2 className="text-white font-bold text-lg mb-5">
+        Нові релізи <span className="text-[#1CA2EA]">подкастів</span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+      <div className="grid grid-cols-3 gap-5">
         {podcasts.map((podcast) => (
           <div
             key={podcast.id}
-            className="bg-[#0a1929] border border-[#1a3050] rounded-xl overflow-hidden hover:border-[#1CA2EA]/40 transition-colors cursor-pointer group"
+            className="bg-[#0a1929] rounded-xl overflow-hidden cursor-pointer hover:bg-[#0d2036] transition-colors"
           >
-            <div className="relative overflow-hidden">
-              <img
-                src={podcast.coverUrl}
-                alt={podcast.title}
-                className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-300"
-              />
+            {/* Top meta */}
+            <div className="px-4 pt-4 pb-3">
+              <p className="text-white text-sm font-semibold line-clamp-1">{podcast.title}</p>
+              <p className="text-white/40 text-xs mt-0.5">
+                {podcast.podcastName} <span className="text-white/20">·</span>
+              </p>
             </div>
-            <div className="p-3">
-              <p className="text-[#1CA2EA] text-xs font-semibold mb-1 truncate">
-                {podcast.podcastName}
-              </p>
-              <p className="text-white text-sm font-semibold mb-2 line-clamp-2 leading-snug">
-                {podcast.title}
-              </p>
-              <p className="text-white/30 text-xs">
-                {podcast.publishedAt} · {Math.floor(podcast.duration / 60)} хв
+
+            {/* Image */}
+            <img
+              src={podcast.coverUrl}
+              alt={podcast.title}
+              className="w-full aspect-square object-cover"
+            />
+
+            {/* Bottom meta */}
+            <div className="px-4 py-3">
+              <p className="text-white/40 text-xs leading-relaxed line-clamp-3">
+                {podcast.publishedAt} · {Math.floor(podcast.duration / 60)} хв.{' '}
+                · {podcast.description}
               </p>
             </div>
           </div>

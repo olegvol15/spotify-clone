@@ -2,63 +2,74 @@ import { MoreHorizontal, X, Upload, PlusCircle } from 'lucide-react';
 import { artists } from '../../data/artists';
 
 export default function RightPanel() {
-  const mainArtist = artists[5]; // The Weeknd
-  const secondArtist = artists[4]; // Taylor Swift
+  const artist = artists[4]; // Taylor Swift — stand-in for Lana Del Rey
 
   return (
-    <aside className="fixed top-16 right-0 bottom-0 w-60 z-40 bg-[#060d19] border-l border-[#1a3050] overflow-y-auto flex flex-col p-4">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-4">
-        <span className="text-white text-sm font-semibold truncate">Radio Hits FM</span>
-        <div className="flex items-center gap-0.5">
-          <button className="text-white/40 hover:text-white p-1 transition-colors">
-            <MoreHorizontal size={15} />
-          </button>
-          <button className="text-white/40 hover:text-white p-1 transition-colors">
-            <X size={15} />
+    <aside className="sticky top-16 h-[calc(100vh-4rem)] w-72 bg-[#060d19] border-l border-[#1a3050] overflow-y-auto flex-shrink-0">
+      <div className="p-4">
+
+        {/* Header */}
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-white text-sm font-semibold">Lana Del Rey Radio</span>
+          <div className="flex items-center gap-0.5">
+            <button className="text-white/40 hover:text-white p-1.5 transition-colors">
+              <MoreHorizontal size={18} />
+            </button>
+            <button className="text-white/40 hover:text-white p-1.5 transition-colors">
+              <X size={18} />
+            </button>
+          </div>
+        </div>
+
+        {/* Large grayscale image */}
+        <img
+          src={artist.image}
+          alt={artist.name}
+          className="w-full aspect-square object-cover rounded-xl grayscale mb-4"
+        />
+
+        {/* Track info */}
+        <div className="flex items-start justify-between mb-5">
+          <div className="min-w-0">
+            <p className="text-white text-lg font-bold leading-tight">Kill This Love</p>
+            <p className="text-white text-xs font-bold uppercase tracking-wider mt-0.5">
+              Black Pink
+            </p>
+          </div>
+          <div className="flex items-center gap-2 flex-shrink-0 pt-0.5">
+            <button className="text-white/50 hover:text-white transition-colors">
+              <Upload size={18} />
+            </button>
+            <button className="text-white/50 hover:text-white transition-colors">
+              <PlusCircle size={18} />
+            </button>
+          </div>
+        </div>
+
+        {/* Second image — full width square, grayscale, blue border */}
+        <div className="rounded-xl overflow-hidden border-2 border-[#1CA2EA] mb-4">
+          <img
+            src={artist.image}
+            alt={artist.name}
+            className="w-full aspect-square object-cover grayscale"
+          />
+        </div>
+
+        {/* Artist name */}
+        <p className="text-white text-xl font-bold mb-1">Lana Del Rey</p>
+
+        {/* Listeners + subscribe button — same line */}
+        <div className="flex items-center justify-between gap-2 mb-3">
+          <p className="text-white/50 text-xs shrink-0">72 780 975 слухачів на місяць</p>
+          <button className="flex-shrink-0 border border-white/25 text-white/70 text-xs px-3 py-1 rounded-full hover:border-white/60 hover:text-white transition-colors">
+            Відписатися
           </button>
         </div>
+
+        {/* Bio */}
+        <p className="text-white/40 text-xs leading-relaxed line-clamp-2">{artist.bio}</p>
+
       </div>
-
-      {/* Large artist image (grayscale) */}
-      <img
-        src={mainArtist.image}
-        alt={mainArtist.name}
-        className="w-full aspect-square object-cover rounded-xl grayscale mb-3"
-      />
-
-      {/* Track info */}
-      <div className="flex items-center justify-between mb-4">
-        <div className="min-w-0">
-          <p className="text-white text-sm font-semibold truncate">Blinding Lights</p>
-          <p className="text-white/40 text-xs truncate">{mainArtist.name}</p>
-        </div>
-        <div className="flex items-center gap-1 flex-shrink-0">
-          <button className="text-white/40 hover:text-white p-1 transition-colors">
-            <Upload size={14} />
-          </button>
-          <button className="text-white/40 hover:text-white p-1 transition-colors">
-            <PlusCircle size={14} />
-          </button>
-        </div>
-      </div>
-
-      {/* Second image (smaller) */}
-      <img
-        src={secondArtist.image}
-        alt={secondArtist.name}
-        className="w-full h-28 object-cover rounded-xl mb-4"
-      />
-
-      {/* Artist info */}
-      <p className="text-white text-sm font-semibold mb-0.5">{mainArtist.name}</p>
-      <p className="text-white/40 text-xs mb-3">72 780 975 слухачів</p>
-      <button className="w-full border border-[#1CA2EA] text-[#1CA2EA] text-xs font-semibold rounded-full py-1.5 mb-4 hover:bg-[#1CA2EA]/10 transition-colors">
-        Підписатись
-      </button>
-
-      {/* Bio */}
-      <p className="text-white/40 text-xs leading-relaxed line-clamp-3">{mainArtist.bio}</p>
     </aside>
   );
 }
