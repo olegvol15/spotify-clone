@@ -1,13 +1,10 @@
 import { useRef } from 'react';
 import { ChevronLeft, ChevronRight, Plus } from 'lucide-react';
 import MediaCard from '../ui/MediaCard';
-import type { Album, Track } from '../../types';
+import type { Track } from '../../types';
+import { isAlbum, type MediaItem } from '../../utils/typeGuards';
 
-type Item = Album | Track;
-
-function isAlbum(item: Item): item is Album {
-  return 'coverUrl' in item;
-}
+type Item = MediaItem;
 
 interface HorizontalSectionProps {
   title: string;

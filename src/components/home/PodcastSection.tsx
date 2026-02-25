@@ -1,10 +1,5 @@
 import { podcasts } from '../../data/podcasts';
-
-function formatDuration(totalSeconds: number) {
-  const hours = Math.floor(totalSeconds / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  return `${hours} год. ${minutes} хв.`;
-}
+import { formatLongDuration } from '../../utils/format';
 
 export default function PodcastSection() {
   return (
@@ -40,7 +35,7 @@ export default function PodcastSection() {
 
             <div className="h-[120px] overflow-hidden">
               <p className="text-[#C2D2E8] text-sm leading-[1.45]">
-                {podcast.publishedAt} • {formatDuration(podcast.duration)} • {podcast.description}
+                {podcast.publishedAt} • {formatLongDuration(podcast.duration)} • {podcast.description}
               </p>
             </div>
           </div>

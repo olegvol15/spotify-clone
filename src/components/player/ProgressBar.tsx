@@ -1,16 +1,11 @@
 import { useRef } from 'react';
+import { formatDuration } from '../../utils/format';
 
 interface ProgressBarProps {
   progress: number; // 0–1
   onSeek?: (progress: number) => void;
   duration?: number; // seconds, for displaying timestamps
   className?: string;
-}
-
-function fmtTime(sec: number) {
-  const m = Math.floor(sec / 60);
-  const s = Math.floor(sec % 60);
-  return `${m}:${s.toString().padStart(2, '0')}`;
 }
 
 export default function ProgressBar({
@@ -46,8 +41,8 @@ export default function ProgressBar({
       </div>
       {duration !== undefined && (
         <div className="flex justify-between mt-1">
-          <span className="text-xs text-muted">{fmtTime(progress * duration)}</span>
-          <span className="text-xs text-muted">{fmtTime(duration)}</span>
+          <span className="text-xs text-muted">{formatDuration(progress * duration)}</span>
+          <span className="text-xs text-muted">{formatDuration(duration)}</span>
         </div>
       )}
     </div>

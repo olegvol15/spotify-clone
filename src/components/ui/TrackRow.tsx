@@ -1,5 +1,5 @@
 import { Heart, MoreVertical, Play } from 'lucide-react';
-import { formatDuration } from '../../data/tracks';
+import { formatDuration, formatPlayCount } from '../../utils/format';
 import type { Track } from '../../types';
 import { usePlayerStore } from '../../store/playerStore';
 
@@ -27,13 +27,6 @@ export default function TrackRow({
     } else {
       play(track, queue);
     }
-  };
-
-  const formatPlayCount = (n: number) => {
-    if (n >= 1_000_000_000) return `${(n / 1_000_000_000).toFixed(1)}B`;
-    if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(0)}M`;
-    if (n >= 1_000) return `${(n / 1_000).toFixed(0)}K`;
-    return n.toString();
   };
 
   return (

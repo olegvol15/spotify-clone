@@ -5,6 +5,7 @@ import TopBar from '../components/layout/TopBar';
 import Sidebar from '../components/layout/Sidebar';
 import RightPanel from '../components/layout/RightPanel';
 import Footer from '../components/layout/Footer';
+import DesktopPlayer from '../components/layout/DesktopPlayer';
 
 const HIDDEN_NAV_ROUTES = ['/player', '/auth/signin', '/auth/signup', '/auth/forgot-password'];
 
@@ -36,7 +37,7 @@ function RootLayout() {
         </div>
 
         {/* Main content — shared mobile + desktop */}
-        <main className="flex-1 min-w-0 pb-32 lg:pb-0">
+        <main className="flex-1 min-w-0 pb-32 lg:pb-[72px]">
           <Outlet />
         </main>
 
@@ -49,6 +50,11 @@ function RootLayout() {
       {/* Footer — outside 3-column area, spans true full width (desktop only) */}
       <div className="hidden lg:block">
         <Footer />
+      </div>
+
+      {/* Desktop player bar — fixed at bottom (desktop only) */}
+      <div className="hidden lg:block">
+        <DesktopPlayer />
       </div>
 
       {/* Mobile nav — fixed at bottom */}

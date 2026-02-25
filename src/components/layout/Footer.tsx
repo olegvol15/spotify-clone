@@ -11,7 +11,6 @@ export default function Footer() {
         {/* Logo */}
         <div className="flex flex-col items-start">
           <LogoIcon className="w-24 h-auto" />
-          <span className="text-white font-semibold text-xl mt-2 tracking-tight">LumiTune</span>
         </div>
 
         {/* Contact grid */}

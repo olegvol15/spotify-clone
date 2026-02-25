@@ -1,11 +1,7 @@
 import { useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Artist } from '../../types';
-
-function formatListeners(count: number): string {
-  // Ukrainian locale uses space as thousands separator
-  return count.toLocaleString('uk-UA');
-}
+import { formatListeners } from '../../utils/format';
 
 interface ArtistSectionProps {
   title: string;
