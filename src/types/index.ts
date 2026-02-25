@@ -74,3 +74,24 @@ export interface User {
   topAlbumIds: string[];
   favoriteArtistIds: string[];
 }
+
+export interface Podcast {
+  id: string;
+  title: string;
+  podcastName: string;
+  coverUrl: string;
+  description: string;
+  publishedAt: string;
+  duration: number; // seconds
+}
+
+export interface Audiobook {
+  id: string;
+  title: string;
+  author: string;
+  coverUrl: string;
+  genre: string;
+  description: string;
+  publishedAt: string;
+  duration: number; // seconds
+}
