@@ -97,16 +97,27 @@
     opacity: 0.74;
   }
 
+  @media (max-width: 639px) {
+    .auth-page-bg::before { opacity: 0.38; }
+    .auth-page-bg::after  { opacity: 0.28; }
+  }
+
   .auth-modal {
-    border-radius: 24px;
-    border: 1px solid rgba(70, 134, 196, 0.65);
-    background:
-      radial-gradient(70% 80% at 50% 15%, rgba(11, 53, 104, 0.32) 0%, rgba(3, 14, 30, 0.92) 60%),
-      rgba(2, 11, 24, 0.88);
-    box-shadow:
-      0 40px 80px rgba(0, 0, 0, 0.6),
-      inset 0 1px 0 rgba(117, 186, 255, 0.12);
-    backdrop-filter: blur(1.5px);
+    /* mobile: no card — full-screen transparent layout */
+  }
+
+  @media (min-width: 640px) {
+    .auth-modal {
+      border-radius: 24px;
+      border: 1px solid rgba(70, 134, 196, 0.65);
+      background:
+        radial-gradient(70% 80% at 50% 15%, rgba(11, 53, 104, 0.32) 0%, rgba(3, 14, 30, 0.92) 60%),
+        rgba(2, 11, 24, 0.88);
+      box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(117, 186, 255, 0.12);
+      backdrop-filter: blur(1.5px);
+    }
   }
 
   .auth-input {

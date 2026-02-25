@@ -2,7 +2,7 @@ import { createRootRoute, Outlet, useRouterState } from '@tanstack/react-router'
 import BottomNav from '../components/layout/BottomNav';
 import MiniPlayer from '../components/layout/MiniPlayer';
 
-const HIDDEN_NAV_ROUTES = ['/player', '/auth/signin', '/auth/signup'];
+const HIDDEN_NAV_ROUTES = ['/player', '/auth/signin', '/auth/signup', '/auth/forgot-password'];
 
 function RootLayout() {
   const { location } = useRouterState();
