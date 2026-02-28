@@ -4,6 +4,7 @@ import { Plus } from 'lucide-react';
 import { playlists } from '../data/playlists';
 import { albums } from '../data/albums';
 import { artists } from '../data/artists';
+import Button from '../components/ui/Button';
 
 type Tab = 'playlists' | 'albums' | 'artists';
 
@@ -26,15 +27,16 @@ function LibraryPage() {
       {/* Tabs */}
       <div className="flex gap-2 mb-5">
         {(['playlists', 'albums', 'artists'] as Tab[]).map((t) => (
-          <button
+          <Button
             key={t}
+            variant={tab === t ? 'secondary' : 'ghost'}
+            shape="pill"
+            size="sm"
             onClick={() => setTab(t)}
-            className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
-              tab === t ? 'bg-brand text-white' : 'bg-surface-alt text-muted'
-            }`}
+            className={tab !== t ? 'bg-surface-alt text-sm' : 'text-sm'}
           >
             {t === 'playlists' ? 'Плейлисти' : t === 'albums' ? 'Альбоми' : 'Виконавці'}
-          </button>
+          </Button>
         ))}
       </div>
 

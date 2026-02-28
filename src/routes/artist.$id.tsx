@@ -7,6 +7,7 @@ import { albums } from '../data/albums';
 import TrackRow from '../components/ui/TrackRow';
 import MediaCard from '../components/ui/MediaCard';
 import SectionHeader from '../components/ui/SectionHeader';
+import Button from '../components/ui/Button';
 
 export const Route = createFileRoute('/artist/$id')({
   component: ArtistPage,
@@ -76,15 +77,14 @@ function ArtistPage() {
       <div className="px-4 mt-4">
         {/* Follow + share */}
         <div className="flex items-center gap-3 mb-6">
-          <button
+          <Button
+            variant={following ? 'secondary' : 'outline'}
+            shape="pill"
+            leftIcon={following ? <UserCheck size={16} /> : undefined}
             onClick={() => setFollowing(!following)}
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-colors ${
-              following ? 'bg-brand text-white' : 'border border-white/30 text-white'
-            }`}
           >
-            {following && <UserCheck size={16} />}
             {following ? 'Підписаний' : 'Підписатись'}
-          </button>
+          </Button>
           <button className="p-2.5 border border-white/20 rounded-full">
             <Share2 size={18} className="text-white" />
           </button>

@@ -5,6 +5,7 @@ import PlayerControls from '../components/player/PlayerControls';
 import ProgressBar from '../components/player/ProgressBar';
 import TrackRow from '../components/ui/TrackRow';
 import { useState } from 'react';
+import Button from '../components/ui/Button';
 
 export const Route = createFileRoute('/player')({ component: PlayerPage });
 
@@ -17,12 +18,9 @@ function PlayerPage() {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-surface px-4 text-center">
         <p className="text-muted mb-4">Немає активного треку</p>
-        <button
-          onClick={() => navigate({ to: '/' })}
-          className="px-6 py-2.5 bg-brand text-white rounded-full font-semibold text-sm"
-        >
+        <Button variant="secondary" shape="pill" onClick={() => navigate({ to: '/' })} className="px-6">
           Перейти на головну
-        </button>
+        </Button>
       </div>
     );
   }
@@ -97,13 +95,15 @@ function PlayerPage() {
               <button className="p-2">
                 <Share2 size={20} className="text-white/40" />
               </button>
-              <button
+              <Button
+                variant="ghost"
+                size="sm"
+                leftIcon={<ListMusic size={18} />}
                 onClick={() => setShowQueue(true)}
-                className="flex items-center gap-1.5 text-white/60 hover:text-white transition-colors text-sm"
+                className="text-sm text-white/60"
               >
-                <ListMusic size={18} />
                 Черга
-              </button>
+              </Button>
             </div>
           </div>
         </>
@@ -112,9 +112,9 @@ function PlayerPage() {
         <div className="flex-1 flex flex-col px-4 pb-4 overflow-hidden">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-white font-bold text-lg">Черга відтворення</h2>
-            <button onClick={() => setShowQueue(false)} className="text-brand text-sm font-medium">
+            <Button variant="ghost" size="sm" onClick={() => setShowQueue(false)} className="text-sm font-medium text-brand">
               Закрити
-            </button>
+            </Button>
           </div>
           <div className="overflow-y-auto space-y-1 flex-1">
             {queue.map((t, i) => (

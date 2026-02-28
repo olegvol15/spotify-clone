@@ -4,6 +4,7 @@ import { Heart, SortAsc } from 'lucide-react';
 import { tracks } from '../data/tracks';
 import TrackRow from '../components/ui/TrackRow';
 import { usePlayerStore } from '../store/playerStore';
+import Button from '../components/ui/Button';
 
 type SortKey = 'recent' | 'az' | 'artist';
 
@@ -40,12 +41,9 @@ function FavoritePage() {
 
       {/* Controls */}
       <div className="flex items-center justify-between mt-4 mb-4">
-        <button
-          onClick={playAll}
-          className="px-6 py-2.5 bg-brand text-white rounded-full font-semibold text-sm"
-        >
+        <Button variant="secondary" shape="pill" onClick={playAll} className="px-6">
           Відтворити все
-        </button>
+        </Button>
         <div className="relative">
           <button className="flex items-center gap-1.5 p-2.5 bg-surface-alt rounded-full text-muted text-sm">
             <SortAsc size={16} />
@@ -56,15 +54,16 @@ function FavoritePage() {
       {/* Sort pills */}
       <div className="flex gap-2 mb-4">
         {(['recent', 'az', 'artist'] as SortKey[]).map((s) => (
-          <button
+          <Button
             key={s}
+            variant={sort === s ? 'secondary' : 'ghost'}
+            shape="pill"
+            size="sm"
             onClick={() => setSort(s)}
-            className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-              sort === s ? 'bg-brand text-white' : 'bg-surface-alt text-muted'
-            }`}
+            className={sort !== s ? 'bg-surface-alt' : ''}
           >
             {s === 'recent' ? 'Нещодавні' : s === 'az' ? 'А — Я' : 'Виконавець'}
-          </button>
+          </Button>
         ))}
       </div>
 

@@ -5,6 +5,7 @@ import { tracks } from '../data/tracks';
 import { getArtist } from '../data/artists';
 import TrackRow from '../components/ui/TrackRow';
 import { usePlayerStore } from '../store/playerStore';
+import Button from '../components/ui/Button';
 
 export const Route = createFileRoute('/album/$id')({
   component: AlbumPage,
@@ -93,13 +94,15 @@ function AlbumPage() {
 
         {/* Controls */}
         <div className="flex items-center gap-3 mt-4 mb-5">
-          <button
+          <Button
+            variant="secondary"
+            shape="pill"
+            leftIcon={<Play size={16} fill="white" />}
             onClick={playAll}
-            className="flex items-center gap-2 px-6 py-2.5 bg-brand rounded-full text-white font-semibold text-sm"
+            className="px-6"
           >
-            <Play size={16} fill="white" />
             Відтворити
-          </button>
+          </Button>
           <button
             onClick={shufflePlay}
             className="p-2.5 bg-surface-alt rounded-full"

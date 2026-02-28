@@ -1,4 +1,5 @@
 import { Link } from '@tanstack/react-router';
+import Button from './Button';
 
 interface SectionHeaderProps {
   title: string;
@@ -16,12 +17,14 @@ export default function SectionHeader({ title, showAll, onShowAll }: SectionHead
         </Link>
       )}
       {onShowAll && !showAll && (
-        <button
+        <Button
+          variant="ghost"
+          size="sm"
           onClick={onShowAll}
-          className="text-muted text-sm hover:text-brand transition-colors"
+          className="text-sm hover:text-brand"
         >
           Показати все →
-        </button>
+        </Button>
       )}
     </div>
   );

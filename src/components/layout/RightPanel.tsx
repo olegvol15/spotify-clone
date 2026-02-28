@@ -1,5 +1,6 @@
 import { MoreHorizontal, X, Upload, PlusCircle } from 'lucide-react';
 import { artists } from '../../data/artists';
+import Button from '../ui/Button';
 
 export default function RightPanel() {
   const artist = artists[4]; // Taylor Swift — stand-in for Lana Del Rey
@@ -61,9 +62,9 @@ export default function RightPanel() {
         {/* Listeners + subscribe button — same line */}
         <div className="flex items-center justify-between gap-2 mb-3">
           <p className="text-white/50 text-xs shrink-0">72 780 975 слухачів на місяць</p>
-          <button className="flex-shrink-0 border border-white/25 text-white/70 text-xs px-3 py-1 rounded-full hover:border-white/60 hover:text-white transition-colors">
+          <Button variant="outline" size="sm" className="flex-shrink-0">
             Відписатися
-          </button>
+          </Button>
         </div>
 
         {/* Bio */}

@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Button from '../components/ui/Button';
 
 function Toggle({ value, onChange }: { value: boolean; onChange: (v: boolean) => void }) {
   return (
@@ -125,9 +126,9 @@ function SettingsPage() {
         <SettingsRow label="Політика конфіденційності" onPress={() => {}} />
       </div>
 
-      <button className="w-full py-3.5 mt-2 rounded-xl bg-red-500/10 text-red-400 font-medium text-sm">
+      <Button variant="danger" shape="rect" fullWidth className="py-3.5 mt-2">
         Вийти з акаунту
-      </button>
+      </Button>
     </div>
   );
 }

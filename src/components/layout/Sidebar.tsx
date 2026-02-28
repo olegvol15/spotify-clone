@@ -48,10 +48,10 @@ export default function Sidebar() {
       <div className="px-5 pt-6 pb-4">
         <h2 className="text-white text-xl font-bold mb-4">Плейлисти</h2>
 
-        <button className="flex items-center gap-3 px-3 py-2.5 w-full rounded-xl text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-colors">
+        <Link to="/favorite" className="flex items-center gap-3 px-3 py-2.5 w-full rounded-xl text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-colors">
           <Heart size={18} />
           Улюблені треки
-        </button>
+        </Link>
 
         <button className="flex items-center gap-3 px-3 py-2.5 w-full rounded-xl text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-colors mt-1">
           <ListPlus size={18} />
