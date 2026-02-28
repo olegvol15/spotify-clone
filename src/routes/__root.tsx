@@ -1,4 +1,4 @@
-import { createRootRoute, Outlet, useRouterState } from '@tanstack/react-router';
+import { Link, Outlet, createRootRoute, useRouterState } from '@tanstack/react-router';
 import BottomNav from '../components/layout/BottomNav';
 import MiniPlayer from '../components/layout/MiniPlayer';
 import TopBar from '../components/layout/TopBar';
@@ -66,6 +66,22 @@ function RootLayout() {
   );
 }
 
+function NotFoundPage() {
+  return (
+    <div className="min-h-[50vh] flex flex-col items-center justify-center gap-4 text-center px-6">
+      <h1 className="text-3xl font-semibold">404</h1>
+      <p className="text-white/70">Сторінку не знайдено</p>
+      <Link
+        to="/"
+        className="rounded-full bg-[#0A84FF] px-5 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity"
+      >
+        Повернутися на головну
+      </Link>
+    </div>
+  );
+}
+
 export const Route = createRootRoute({
   component: RootLayout,
+  notFoundComponent: NotFoundPage,
 });
